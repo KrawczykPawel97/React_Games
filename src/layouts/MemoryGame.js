@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from '../components/Card';
+import Card from '../components/memoryGame/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {NavLink} from "react-router-dom";
+import '../styles/Card.css';
+import Alert from "../components/Alert";
 
 class MemoryGame extends React.Component {
     state = {
@@ -101,7 +102,6 @@ class MemoryGame extends React.Component {
         for (let index = 0; index < copyColors.length;) {
             const position = Math.floor(Math.random() * copyColors.length);
             this.drawColors.push(copyColors[position]);
-            console.log(copyColors[position]);
             copyColors.splice(position, 1);
         }
     };
@@ -165,7 +165,6 @@ class MemoryGame extends React.Component {
             this.saveColor.splice(0,4);
         }
         if( this.counterEnd === 10){
-            console.log("Zakończyłeś grę ! JEsteś geeeenialny!");
             clearInterval(this.idInterval);
         }
     };
@@ -186,11 +185,13 @@ class MemoryGame extends React.Component {
                 );
                 this.counterClick++;
             }
+            this.checkCards();
         }
-        this.checkCards();
     };
 
     render(){
+        let body = `You have found all pairs in time: ` +this.time+ ' s ' +
+            "& You have mistaken " + this.counterError + ' times.';
 
         let newCard = this.state.cards.map(card =>
             <Card
@@ -204,37 +205,12 @@ class MemoryGame extends React.Component {
        return(
            <React.Fragment>
            { this.counterEnd === 10 ?
-               <div className="alert alert-success" role="alert">
-                   <h4 className="alert-heading">Well done!</h4>
-                   <p>You have found all pairs in time: {this.time}s<br/>
-                       You have mistaken {this.counterError} times.
-                   </p>
-
-                   <div className="alert alert-warning" role="alert">
-                       <div className="row justify-content-around">
-                           <div className="col-4">
-                               <button type="button"
-                                       className="btn btn-outline-success"
-                                       onClick={this.draw}
-                               >
-                                        Play Again
-                               </button>
-                           </div>
-                           <div className="col-4">
-                               <button type="button" className="btn btn-outline-primary">
-                                   <NavLink to={"/"}
-                                            exact={true}
-                                   >
-                                       {"Exit"}
-                                   </NavLink>
-                               </button>
-                           </div>
-                       </div>
-                   </div>
-
-               </div> :
+                <Alert title = {'Well done!'}
+                        body = {body}
+                       onClick={() => {this.draw()}}
+                />
+               :
                    <div className={"home"}>
-                       <p>MEMORY GAME</p>
                        {newCard}
                        <div>
                            <button
@@ -252,4 +228,5 @@ class MemoryGame extends React.Component {
     }
 }
 
-                export default MemoryGame;
+
+export default MemoryGame;

@@ -1,0 +1,24 @@
+@media screen and (max-width: 1140px) {
+    .password{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+}
+@media screen and (max-width: 960px) {
+    .password{
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 15px;
+
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .password{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+}

@@ -5,6 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";
 import Main from "./layouts/Main";
+import HeadGame from "./components/HeadGame";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                     </div>
                   {/*</aside>*/}
                   <div className="col-8 col-sm-8 col-md-8" id={"game"}>
+                      {<HeadGame/>}
                       {<Main/>}
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const Navigation = () => {
 
     return(
         <nav className={"main"}>
-            <p>Navigation</p>
+            <p className={"head"}>Navigation</p>
             <ul className="list-group">
                 {menu}
             </ul>

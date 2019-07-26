@@ -3,7 +3,6 @@ import React from 'react';
 const AboutMe = () => {
     return(
         <React.Fragment>
-            <p>About me ..</p>
             <br/>
             <span>
                 I am Paweł Krawczyk and I am 21 years old.<br/>

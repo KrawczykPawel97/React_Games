@@ -1,0 +1,31 @@
+.square {
+    border: 1px dotted;
+    background-color: cornsilk;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 80px;
+    line-height: 80px;
+    height: 80px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border-color: chocolate;
+}
+
+ul {
+    padding-left: 30px;
+}
+.game-info {
+    margin-left: 20px;
+}
+.status {
+    margin-bottom: 10px;
+}
+.row {
+    margin-left: 0px;
+}

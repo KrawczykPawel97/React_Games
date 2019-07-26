@@ -1,33 +1,30 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import '../styles/Footer.css';
 
-const Footer = () => {
+const HeadGame = () => {
     return(
-        <div className={"footer"}>
-            <h2>Footer</h2>
+        <div className={"headGame"}>
             <Route path={"/"} exact render={(props)=>{
                 return(
-                    <p>You are on the <span>home page</span></p>
+                    <p className={"head"}>About me ..</p>
                 )
             }} />
             <Route path={"/memory"} exact render={(props)=>{
                 return(
-                    <p>You are on the <span>memory game</span></p>
+                    <p className={"head"}>Memory Game</p>
                 )
             }} />
             <Route path={"/hangman"} exact render={(props)=>{
                 return(
-                    <p>You are on the <span>hangman game</span></p>
+                    <p className={"head"}>Hangman</p>
                 )
             }} />
             <Route path={"/ticTacToe"} exact render={(props)=>{
                 return(
-                    <p>You are on the <span>tic tac toe game</span></p>
-
+                    <p className={"head"}>Tic Tac Toe</p>
                 )
             }} />
         </div>
     )
 };
-export default Footer;
+export default HeadGame;
