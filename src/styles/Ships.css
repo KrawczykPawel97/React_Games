@@ -26,3 +26,16 @@
 #helpStatus {
     font-size: 15px;
 }
+
+ul {
+    padding-left: 30px;
+}
+.game-info {
+    margin-left: 20px;
+}
+.status {
+    margin-bottom: 10px;
+}
+.row {
+    margin-left: 0px;
+}

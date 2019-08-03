@@ -8,7 +8,6 @@ const list = [
     {name: "Main", path: "/", exact: true},
     {name: "Memory", path: "/memory"},
     {name: "Hangman", path: "/hangman"},
-    {name: "Tic Tac Toe", path: "/ticTacToe"},
     {name: "Ships", path:"/ships"}
 ];
 
