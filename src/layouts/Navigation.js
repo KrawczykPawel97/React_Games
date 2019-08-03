@@ -9,6 +9,7 @@ const list = [
     {name: "Memory", path: "/memory"},
     {name: "Hangman", path: "/hangman"},
     {name: "Tic Tac Toe", path: "/ticTacToe"},
+    {name: "Ships", path:"/ships"}
 ];
 
 const Navigation = () => {

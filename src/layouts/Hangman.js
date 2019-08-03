@@ -54,7 +54,7 @@ class Hangman extends React.Component {
 
         if(this.state.stepNumber === 9){
             this.title = 'I\'m sorry';
-            this.body = 'You could not guess the password';
+            this.body = 'You could not guess the password: ' + this.state.password;
             this.setState({start: false})
         }
 
@@ -74,9 +74,10 @@ class Hangman extends React.Component {
                 if(password.charAt(counter)===" ") {curtained += " "}
                 else {curtained+="-"}
             }
+            const lowerPassword = password.toLowerCase();
             this.setState({
                 category: category,
-                password: password,
+                password: lowerPassword,
                 hiddenPassword: curtained
             });
 

@@ -27,6 +27,11 @@ const Footer = () => {
 
                 )
             }} />
+            <Route path={"/ships"} exact render={(props)=>{
+                return(
+                    <p>You are on the <span>ships game</span></p>
+                )
+            }} />
         </div>
     )
 };

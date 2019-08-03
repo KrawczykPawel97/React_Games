@@ -25,9 +25,6 @@ export default function Start(props) {
                         Start Game
                     </button>
                 </div>
-                {/*<div className={"row"}>*/}
-                {/*    <button type="submit" className="btn btn-primary">Start Game</button>*/}
-                {/*</div>*/}
             </div>
         </div>
     )

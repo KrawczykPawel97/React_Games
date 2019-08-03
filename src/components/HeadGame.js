@@ -24,6 +24,11 @@ const HeadGame = () => {
                     <p className={"head"}>Tic Tac Toe</p>
                 )
             }} />
+            <Route path={"/ships"} exact render={(props)=>{
+                return(
+                    <p className={"head"}>Ships</p>
+                )
+            }} />
         </div>
     )
 };
