@@ -9,6 +9,7 @@ import BoardX from "../components/ships/BoardX";
 import BoardShotY from "../components/ships/BoardShotY";
 import BoardY from "../components/ships/BoardY";
 import EndGame from "../components/ships/EndGame";
+import {surroundTheShip} from "../components/ships/SurroundShip";
 
 class Ships extends React.Component {
     state = {
@@ -20,10 +21,6 @@ class Ships extends React.Component {
         ShotX: [],
         ShotY: [],
     };
-
-    surroundX = [];
-    surroundY = [];
-
 
     counterEndX = 0;
     counterEndY = 0;
@@ -40,7 +37,7 @@ class Ships extends React.Component {
             if (textCounter.textContent === "") {
                 this.fillInTheShip(i, i);
                 this.drawShips();
-                this.surroundTheShip(this.state.playerX ? this.state.ShipsX : this.state.ShipsY);
+                surroundTheShip(this.state.playerX ? this.state.ShipsX : this.state.ShipsY, this.state.playerX);
                 this.counterClick++;
                 if (this.counterClick === 17) {
                     this.counterClick = 1;
@@ -76,7 +73,7 @@ class Ships extends React.Component {
                 )) {
                 this.fillInTheShip(this.saveFirstCoordinates, i);
                 this.drawShips();
-                this.surroundTheShip(this.state.playerX ? this.state.ShipsX : this.state.ShipsY);
+                surroundTheShip(this.state.playerX ? this.state.ShipsX : this.state.ShipsY, this.state.playerX);
                 this.counterClick++;
             }
         }
@@ -162,74 +159,7 @@ class Ships extends React.Component {
         }
     }
 
-    surroundTheShip(ships) {
-        for (let counter = 0; counter < ships.length; counter++) {
-            for (let counterPlace = ships[counter] - 11; counterPlace < ships[counter] - 8; counterPlace++) {
 
-                if (document.getElementById(counterPlace) === null ||
-                    document.getElementById(counterPlace).textContent !== "") {
-                    continue;
-                }
-                document.getElementById(counterPlace).textContent = "X";
-            }
-            for (let counterPlace = ships[counter] - 1; counterPlace < ships[counter] + 2; counterPlace++) {
-                if (document.getElementById(counterPlace) === null ||
-                    document.getElementById(counterPlace).textContent !== "") {
-                    continue;
-                }
-                document.getElementById(counterPlace).textContent = "X";
-            }
-            for (let counterPlace = ships[counter] + 9; counterPlace < ships[counter] + 12; counterPlace++) {
-                if (document.getElementById(counterPlace) === null ||
-                    document.getElementById(counterPlace).textContent !== "") {
-                    continue;
-                }
-                document.getElementById(counterPlace).textContent = "X";
-            }
-
-            for (let i = 0, y = 9; i < 100; i += 10 , y += 10) {
-                if (ships[counter] === i) {
-                    if (document.getElementById(ships[counter] - 11) !== null &&
-                        document.getElementById(ships[counter] - 1) !== null &&
-                        document.getElementById(ships[counter] + 9) !== null &&
-                        document.getElementById(ships[counter] - 11).textContent === "X" &&
-                        document.getElementById(ships[counter] - 1).textContent === "X" &&
-                        document.getElementById(ships[counter] + 9).textContent === "X"
-                    ) {
-                        document.getElementById(ships[counter] - 11).textContent = "";
-                        document.getElementById(ships[counter] - 1).textContent = "";
-                        document.getElementById(ships[counter] + 9).textContent = "";
-                        if(this.state.playerX){
-                            for(let clear = 0 ; clear < this.surroundX.length; clear++)
-                                if(this.surroundX[clear] === ships[counter] - 11 ||
-                                    this.surroundX[clear] === ships[counter] - 1 ||
-                                    this.surroundX[clear] === ships[counter] + 9
-                                ) this.surroundX.splice(clear, 1);
-                        } else {
-                            for(let clear = 0 ; clear < this.surroundY.length; clear++)
-                                if(this.surroundY[clear] === ships[counter] - 11 ||
-                                    this.surroundY[clear] === ships[counter] - 1 ||
-                                    this.surroundY[clear] === ships[counter] + 9
-                                ) this.surroundY.splice(clear, 1);
-                        }
-                    }
-                }
-                if (ships[counter] === y) {
-                    if (document.getElementById(ships[counter] + 11) !== null &&
-                        document.getElementById(ships[counter] + 1) !== null &&
-                        document.getElementById(ships[counter] - 9) !== null &&
-                        document.getElementById(ships[counter] + 11).textContent === "X" &&
-                        document.getElementById(ships[counter] + 1).textContent === "X" &&
-                        document.getElementById(ships[counter] - 9).textContent === "X"
-                    ) {
-                        document.getElementById(ships[counter] + 11).textContent = "";
-                        document.getElementById(ships[counter] + 1).textContent = "";
-                        document.getElementById(ships[counter] - 9).textContent = "";
-                    }
-                }
-            }
-        }
-    };
 
     changePlayer(){
         this.setState({
