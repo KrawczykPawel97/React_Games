@@ -10,4 +10,4 @@ Krok 2: Wchodzimy do folderu głównego komendą "cd" i następnie instalujemy w
 
 Krok 3: Wpisujemy komendę "node dialer.js" (spodziewamy się komunikatu : "app listening on port 3000") (zostawiamy otwarty projekt)
 
-Krok 4: Cieszymy się niesamowicie wciągającą grą, która pochłonia na wiele godzin :)
+Krok 4: Cieszymy się niesamowicie wciągającą grą, która pochłania na wiele godzin :)
